@@ -6,6 +6,8 @@ import Text from './Text';
 import theme from '../theme';
 import * as yup from 'yup'
 
+import { useSignIn } from '../hooks/useSignIn';
+
 const validationSchema = yup.object().shape({
   username: yup.string().required('Username is required'),
   password: yup.string().required('Password is required'),
@@ -50,8 +52,13 @@ const SignInForm = ({onSubmit}) => {
 };
 
 const SignIn = () => {
-  const onSubmit = values => {
-    console.log(values);
+  const [ signIn, result ] = useSignIn();
+  const onSubmit = async (values) => {
+    console.log("values", values)
+    try {
+      await signIn(values);
+      
+    } catch (error) { console.log(error) }
   };
 
   return (

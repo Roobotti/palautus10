@@ -1,4 +1,3 @@
-import Constants from 'expo-constants';
 import { StyleSheet, View } from 'react-native';
 import { Route, Routes, Navigate } from 'react-router-native';
 import RepositoryList from './RepositoryList';
@@ -13,7 +12,7 @@ const styles = StyleSheet.create({
 });
 
 const Main = () => {
-  return (
+   return (
     <View style={styles.container}>
       <AppBar />
       <Routes>
